@@ -14,7 +14,7 @@ class Handler(
 
         val table = dynamoDB.getTable(config.dynamoDBConfig.tableName)
         logger.log("Getting item from db. id ${request.id}")
-        val item = table.getItem(PrimaryKey("id", request.id))
+        val item = table.getItem(PrimaryKey("id", request.id.toString()))
         logger.log("Successfully got item from db. id ${request.id}")
 
         logger.log("Finished handling request. id ${request.id}")
